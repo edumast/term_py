@@ -1,9 +1,22 @@
-import os
+import os,sys,time,random
 from databased import database
 pasta = 'databased/'
 init=True
-aspa=False    
-print("welcome "+database.name_usr)
+aspa=False
+os.system("./shell/hachtag.sh")
+print("")
+os.system("tput setaf 1")
+os.system("tput bold")
+color=["\033[1;31m","\033[1;32m"]
+m = ("welcome to termking_os %s \n" %(database.name_usr))
+for msg in m:
+    sys.stdout.write(msg)
+    sys.stdout.flush()
+    time.sleep(0.06)
+print("")
+os.system("./shell/hachtag.sh")
+os.system("tput setaf 2")
+os.system("tput bold")
 while( init == True ):
     command=input("C:")
     if ( command == "change" ):
