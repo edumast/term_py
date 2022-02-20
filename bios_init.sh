@@ -10,8 +10,7 @@ sleep 0.5
 if [ -z $name_usr ];then
 echo "name_usr:off"
 echo "system error!!!"
-sed -i "s/name_usr=.*#end/name_usr=usr #end/g" databased/database
-sed -i "s/name=.*#end/name='usr' #end/g" style/wlc.py
+sed -i "s/name_usr=.*#end/name_usr=usr #end/g" databased/database.py
 echo "fixed error!"
 else
 echo "name_status:ok"
@@ -20,7 +19,7 @@ sleep 0.5
 if [ -z $age_usr ];then
   echo "age_usr:off"
   echo "system error!!!"
-  sed -i "s/age_usr=.*#end/age_usr=undefined #end/g" databased/database
+  sed -i "s/age_usr=.*#end/age_usr=undefined #end/g" databased/database.py
 echo "fixed error!"
 else
 echo "age_usr:ok"

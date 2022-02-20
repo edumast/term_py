@@ -1,3 +1,3 @@
-name_usr='dev' #end
-age_usr=10 #end
+name_usr='edu' #end
+age_usr=15 #end
 __err__='err' #end
