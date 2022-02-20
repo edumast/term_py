@@ -1,6 +1,9 @@
 import os,sys,time,random
+import time
+from git import Repo
 from databased import database
-pasta = 'databased/'
+pasta = 'softwares/software_app/' 
+pasta_bar = '/softwares/software_app/'
 init=True
 aspa=False
 os.system("./shell/hachtag.sh")
@@ -18,11 +21,25 @@ os.system("./shell/hachtag.sh")
 os.system("tput setaf 2")
 os.system("tput bold")
 while( init == True ):
+    command="nada"
+    print(time.ctime()+" | "+database.name_usr)
     command=input("C:")
-    if ( command == "change" ):
+    command_d=command.split()
+
+    if ( command_d[0] == "enter" ):
+        os.system("."+pasta_bar+command_d[1]+"/init.sh")
+    
+    if ( command_d[0] == "down" ):
+        if ( command_d[1] == "install" ):
+            os.mkdir(pasta+command_d[2])
+            Repo.clone_from("https://github.com/edumast/"+str(command_d[2]), pasta+command_d[2])    
+
+
+
+    if ( command_d[0] == "change" ):
         change_var="__err__"
-        change_info=input("what changed?:")
-        valor_new=input("valor:")
+        change_info=command_d[1]
+        valor_new=command_d[2]
         if ( change_info == "age" ):
             change_var="age_usr"
             type_change=(database.age_usr)
@@ -34,7 +51,7 @@ while( init == True ):
             valor_new="'"+valor_new+"'"
         if ( change_var == "__err__" ):
             type_change=(database.__err__)
-            valor_new="err"
+            valor_new='err'
         with open("databased/database.py", "r") as file:
 	        x = file.read()
         with open("databased/database.py", "w") as file:
