@@ -11,18 +11,19 @@ init=True
 aspa=False
 
 #init_style
-os.system("./shell/hachtag.sh")
-print("")
-os.system("tput setaf 1")
-os.system("tput bold")
-color=["\033[1;31m","\033[1;32m"]
-m = ("welcome to termking_os %s \n" %(database.name_usr))
-for msg in m:
-    sys.stdout.write(msg)
-    sys.stdout.flush()
-    time.sleep(0.06)
-print("")
-os.system("./shell/hachtag.sh")
+if ( database.in_tela == 'True' ):
+    os.system("./shell/hachtag.sh")
+    print("")
+    os.system("tput setaf 1")
+    os.system("tput bold")
+    color=["\033[1;31m","\033[1;32m"]
+    m = ("welcome to termking_os %s \n" %(database.name_usr))
+    for msg in m:
+        sys.stdout.write(msg)
+        sys.stdout.flush()
+        time.sleep(0.06)
+    print("")
+    os.system("./shell/hachtag.sh")
 os.system("tput setaf 2")
 os.system("tput bold")
 #init_style
