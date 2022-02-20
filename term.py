@@ -20,7 +20,7 @@ os.system("tput bold")
 while( init == True ):
     command=input("C:")
     if ( command == "change" ):
-        change_info="__er!n__"
+        change_var="__err__"
         change_info=input("what changed?:")
         valor_new=input("valor:")
         if ( change_info == "age" ):
@@ -32,6 +32,9 @@ while( init == True ):
             aspa=True
         if ( aspa == True ):
             valor_new="'"+valor_new+"'"
+        if ( change_var == "__err__" ):
+            type_change=(database.__err__)
+            valor_new="err"
         with open("databased/database.py", "r") as file:
 	        x = file.read()
         with open("databased/database.py", "w") as file:
