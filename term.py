@@ -41,6 +41,8 @@ def shutdown():
 def exit():
     print("os")
     brek=True
+def inp(equal,string_inp):
+    equal=input(string_inp)
 
 def change(change_var,valor_new,aspa):
     if ( change_info == "name" ):
@@ -114,7 +116,7 @@ while(init_w == True ):
             meuArquivo = open('tt.py')
             nomes = meuArquivo.read()
             PROMPT_command=str(nomes)
-            print(PROMPT_command)
+        
             PROMPT_command_d=PROMPT_command.split()
         if ( PROMPT_command== " " ):
             PROMPT_command="not"
@@ -126,7 +128,7 @@ while(init_w == True ):
         PROMPT_command_ponto=PROMPT_command_ponto.strip()
         PROMPT_command_ponto=PROMPT_command_ponto.replace(")()",")")
         c=(PROMPT_command_ponto)
-        print(c)
+        
         if ( c[-1:] == ")" ):
             escudo=True
         else:
@@ -135,11 +137,8 @@ while(init_w == True ):
         if ( escudo == False ):           
             c=(c+"()")
             print(c)
-        if ( PROMPT_command_d[0] == "ch" ):
-            class_p=" "
-        else:
-            print(c)
-            eval (c)
+    
+        eval (c)
         if ( read_file == True ):
             p=input("")
     if ( command_d[0] == "upd"):
