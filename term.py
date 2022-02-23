@@ -12,6 +12,7 @@ init=True
 aspa=False
 class_p=""
 brek="nada"
+read_file=False
 
 OK = ('\033[92m') #GREEN
 WARNING = '\033[93m' #YELLOW
@@ -69,7 +70,7 @@ def init():
     print(RED)
     BOLD()
     lor=["\033[1;31m","\033[1;32m"]
-    m = ("welme to termking_os %s \n" %(database.dados.name))
+    m = ("welcome to termking_os %s \n" %(database.dados.name))
     for msg in m:
         sys.stdout.write(msg)
         sys.stdout.flush()
@@ -102,26 +103,45 @@ while(init_w == True ):
     while ( command_d[0] == "PROMPT"):
         if ( brek == True ):
             break
-        PROMPT_command=input("C:")
-        PROMPT_command_d=PROMPT_command.split()
-        if (PROMPT_command_d[0] == "" ):
-            PROMPT_command_d[0]="not"
+        if ( read_file == False ):
+            PROMPT_command=input("C:")
+            if ( PROMPT_command == "file" ):
+                read_file=True
+                PROMPT_command="ch"
+        
+        if ( read_file == True ):
+            os.system("./compiler.sh")
+            meuArquivo = open('tt.py')
+            nomes = meuArquivo.read()
+            PROMPT_command=str(nomes)
+            print(PROMPT_command)
+            PROMPT_command_d=PROMPT_command.split()
+        if ( PROMPT_command== " " ):
+            PROMPT_command="not"
+
         PROMPT_command_ponto=PROMPT_command.replace(" ","(),")
-        PROMPT_command_ponto=PROMPT_command_ponto.replace(")(), ",").")
-        if ( PROMPT_command_d[0] == "exit" ):
-            command_d[0]="nada."
-        if ( PROMPT_command[-1:] == ")" ):
+        
+        if ( PROMPT_command == "exit" ):
+            command="nada."
+        PROMPT_command_ponto=PROMPT_command_ponto.strip()
+        PROMPT_command_ponto=PROMPT_command_ponto.replace(")()",")")
+        c=(PROMPT_command_ponto)
+        print(c)
+        if ( c[-1:] == ")" ):
             escudo=True
         else:
             escudo=False
-
-        c=(PROMPT_command_ponto)
-        if ( escudo == False ):
+       
+        if ( escudo == False ):           
             c=(c+"()")
+            print(c)
         if ( PROMPT_command_d[0] == "ch" ):
-            class_p=PROMPT_command_d[1]
+            class_p=" "
         else:
+            print(c)
             eval (c)
+        if ( read_file == True ):
+            p=input("")
     if ( command_d[0] == "upd"):
         dados_up()
 
@@ -162,15 +182,15 @@ while(init_w == True ):
     #change
     if ( command_d[0] == "change" ):
         change_var="__err__"
-        change_info=cocommand_d[1]
-        valor_new=cocommand_d[2]
+        change_info=command_d[1]
+        valor_new=command_d[2]
         change_var=change_info
         change(change_var,valor_new,aspa)
 
     #val 
     if ( command_d[0] == "VAL" ):
-        change_var=cocommand_d[1] 
-        valor_new=cocommand_d[2]
+        change_var=command_d[1] 
+        valor_new=command_d[2]
         os.system('sed -i "s/'+change_var+'=.*#end/'+change_var+'='+"'"+str(valor_new)+"'"+' #end/g" databased/database.py')
     #val
 

@@ -1,6 +1,2 @@
-
-def name():
-    n=("papapap")
-    return n
-name()
-print(name())
+clear prin(BLUE)
+prin("ola")
