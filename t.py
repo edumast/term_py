@@ -1,2 +1,5 @@
 clear prin(BLUE)
-prin("ola")
+inp(x,"x=")
+inp(y,"y=")
+
+prin(x+y)
