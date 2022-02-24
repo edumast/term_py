@@ -43,8 +43,11 @@ def shutdown():
 def exit():
     print("os")
     brek=True
-def inp(equal,string_inp):
-    equal=input(string_inp)
+def inp(tp,equal,string_inp):
+    if ( tp == "i" ):
+        globals()[equal]=int(input(string_inp))
+    elif ( tp == "s" ):
+        globals()[equal]=str(input(string_inp))
 def create(var,val):
     globals()[var]=val
     

@@ -1,5 +1,6 @@
 clear prin(BLUE)
-inp(x,"x=")
-inp(y,"y=")
-
-prin(x+y)
+create("x",1)
+create("y",1)
+inp("i","x","x=")
+inp("i","y","y=")
+prin(int(x)+int(y))

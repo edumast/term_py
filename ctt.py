@@ -1,1 +1,0 @@
-clear prin("ola")
