@@ -17,6 +17,9 @@ def clear():
     os.system("clear")
 def ts2():
     os.system("tput setaf 2")
+def find(var_find):
+    prin("dados."+var_find)
+
 def dados_up():
     os.system('sed -i "s/in_tela=.*#end/in_tela='"'UPDATE_DADOS'"' #end/g" databased/database') 
     os.system("./term.py")

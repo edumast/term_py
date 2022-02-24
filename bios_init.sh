@@ -7,7 +7,7 @@ echo created by eduardo kenji
 sleep 0.5
 echo checking system status!
 sleep 0.5
-if [ -z $name_usr ];then
+if [ -z dados.$name_usr ];then
 echo "name_usr:off"
 echo "system error!!!"
 sed -i "s/name_usr=.*#end/name_usr=usr #end/g" databased/database.py
@@ -16,7 +16,7 @@ else
 echo "name_status:ok"
 fi
 sleep 0.5
-if [ -z $age_usr ];then
+if [ -z dados.$age_usr ];then
   echo "age_usr:off"
   echo "system error!!!"
   sed -i "s/age_usr=.*#end/age_usr=undefined #end/g" databased/database.py

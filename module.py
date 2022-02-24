@@ -25,8 +25,10 @@ YELLOW = '\033[93m' #YELLOW
 RED = '\033[91m' #RED
 BLUE='\33[34m' #BLUE
 def BOLD():
-    os.system('tput bold') #BOLD
+    os.system('tput bold') 
 
+def color(color):
+    print(color)
 
 def prin(string_print):
     print(string_print)
@@ -35,13 +37,14 @@ def clear():
 def ts2():
     os.system("tput setaf 2")
 def dados_up():
-    os.system('sed -i "s/in_tela=.*#end/in_tela='"'UPDATE_DADOS'"' #end/g" databased/database')
+    os.system('sed -i "s/in_tela=.*#end/in_tela='"'UPDATE_DADOS'"' #end/g" databased/database.py')
     os.system("./term.py")
     brek=True
+def clin (clin_command):
+    os.system(clin_command)
 def shutdown():
     print("shutdown...")
 def exit():
-    print("os")
     brek=True
 def inp(tp,equal,string_inp):
     if ( tp == "i" ):
@@ -50,10 +53,21 @@ def inp(tp,equal,string_inp):
         globals()[equal]=str(input(string_inp))
 def create(var,val):
     globals()[var]=val
-    
+
+def load_file(file_load):
+    os.system("."+folder_bar+file_load+"/init.sh")
+
+def load_img(img_link):
+    os.system("jp2a --color --chars=clodxkO0KXNWM img/"+img_link)
+
+def reboot():
+    os.system("./term.py")
+
+def ini_tela():
+    os.system('sed -i "s/in_tela=.*#end/in_tela='"'True'"' #end/g" databased/database.py')
 
 def change(change_var,valor_new,aspa):
-    if ( change_info == "name" ):
+    if ( change_var == "name" ):
         aspa=True
 
     data_eval=eval("dados."+change_var)
@@ -78,7 +92,7 @@ def init():
     os.system("./shell/hachtag.sh")
     print(RED)
     BOLD()
-    lor=["\033[1;31m","\033[1;32m"]
+    #lor=["\033[1;31m","\033[1;32m"]
     m = ("welcome to termking_os %s \n" %(dados.name))
     for msg in m:
         sys.stdout.write(msg)
