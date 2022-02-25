@@ -30,6 +30,9 @@ def BOLD():
 def color(color):
     print(color)
 
+def rose():
+    os.system("tput setaf 197")
+
 def prin(string_print):
     print(string_print)
 
@@ -64,6 +67,8 @@ def inp(tp,equal,string_inp):
 def create(var,val):
     globals()[var]=val
 
+def apps_list():
+    os.system("ls softwares/software_app")
 
 def load_file(file_load):
     os.system("."+folder_bar+file_load+"/init.sh")
@@ -76,6 +81,9 @@ def reboot():
 
 def ini_tela():
     os.system('sed -i "s/in_tela=.*#end/in_tela='"'True'"' #end/g" databased/database.py')
+
+def VAL(change_var,valor_new):
+    os.system('sed -i "s/'+change_var+'=.*#end/'+change_var+'='+"'"+str(valor_new)+"'"+' #end/g" databased/database.py')
 
 def down_install(folder_apps,app_in):
     os.mkdir(folder_apps+app_in)
