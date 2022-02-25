@@ -32,27 +32,38 @@ def color(color):
 
 def prin(string_print):
     print(string_print)
+
 def clear():
     os.system("clear")
+
 def ts2():
     os.system("tput setaf 2")
+
 def dados_up():
     os.system('sed -i "s/in_tela=.*#end/in_tela='"'UPDATE_DADOS'"' #end/g" databased/database.py')
     os.system("./term.py")
     brek=True
+
 def clin (clin_command):
     os.system(clin_command)
+
 def shutdown():
     print("shutdown...")
-def exit():
+    exit()
+
+def exitn():
     brek=True
+
+
 def inp(tp,equal,string_inp):
     if ( tp == "i" ):
         globals()[equal]=int(input(string_inp))
     elif ( tp == "s" ):
         globals()[equal]=str(input(string_inp))
+
 def create(var,val):
     globals()[var]=val
+
 
 def load_file(file_load):
     os.system("."+folder_bar+file_load+"/init.sh")
@@ -65,6 +76,10 @@ def reboot():
 
 def ini_tela():
     os.system('sed -i "s/in_tela=.*#end/in_tela='"'True'"' #end/g" databased/database.py')
+
+def down_install(folder_apps,app_in):
+    os.mkdir(folder_apps+app_in)
+    Repo.clone_from("https://github.com/edumast/"+str(app_in),folder_apps+str(app_in))
 
 def change(change_var,valor_new,aspa):
     if ( change_var == "name" ):
@@ -87,6 +102,7 @@ def change(change_var,valor_new,aspa):
     with open('databased/database.py', 'w') as fd:
         fd.write(x)
     data_ex=False
+
 #init_style
 def init():
     os.system("./shell/hachtag.sh")

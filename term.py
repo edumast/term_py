@@ -34,20 +34,20 @@ while(init_w == True ):
            
     if ( co_cut[0] == "shutdown" ):
         shutdown()
-        exit()
-     
-    if ( brek == True ):
-        break
-
+        exitn()
+    
     if ( co_cut[0] == "reboot" ):
         clear()
         reboot()
+        exitn()
+
+    if ( brek == True ):
         break
 
-    #mman
+    #comman
     if ( co_cut[0] == "comman" ):
-        print("enter | down | apps | change | VAL")
-    #mman
+        prin("enter | down | apps | change | VAL")
+    #comman
 
     #enter
     if ( co_cut[0] == "enter" ):
@@ -58,8 +58,7 @@ while(init_w == True ):
     #down
     if ( co_cut[0] == "down" ):
         if ( co_cut[1] == "install" ):
-            os.mkdir(folder_apps+co_cut[2])
-            Repo.clone_from("https://github.m/edumast/"+str(coco_cut[2]), folder_apps+command_d[2])    
+            down_install(folder_apps,co_cut[2])       
     #down
 
     #change
