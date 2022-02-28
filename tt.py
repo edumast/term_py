@@ -1,1 +1,1 @@
-clear BOLD prin(BLUE)(),inp("i","x","x=")(),inp("i","y","y=")(),prin(RED)(),prin(int(x)+int(y))(),
+BOLD..(),prin(GREEN)..(),print("nome:",end="")..(),rose..(),print_slow("Eduardo_kenji_takemoto.")..(),prin(GREEN)..(),print("ano:",end="")..(),rose..(),print_slow("1°c")..(),time.sleep(2)..(),prin("")..(),prin(YELLOW)..(),load_img("py.png")..

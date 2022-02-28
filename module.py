@@ -16,6 +16,12 @@ class_p=""
 brek="nada"
 read_file=False
 
+#type
+i="i"
+s="s"
+#type
+
+#RGB#
 OK = ('\033[92m') #GREEN
 WARNING = '\033[93m' #YELLOW
 FAIL = '\033[91m' #RED
@@ -24,6 +30,9 @@ GREEN = '\033[92m' #GREEN
 YELLOW = '\033[93m' #YELLOW
 RED = '\033[91m' #RED
 BLUE='\33[34m' #BLUE
+#RGB#
+
+#WINDOW#
 def BOLD():
     os.system('tput bold') 
 
@@ -41,6 +50,7 @@ def clear():
 
 def ts2():
     os.system("tput setaf 2")
+#WINDOW#
 
 def dados_up():
     os.system('sed -i "s/in_tela=.*#end/in_tela='"'UPDATE_DADOS'"' #end/g" databased/database.py')
@@ -112,16 +122,20 @@ def change(change_var,valor_new,aspa):
     data_ex=False
 
 #init_style
-def init():
-    os.system("./shell/hachtag.sh")
-    print(RED)
-    BOLD()
-    #lor=["\033[1;31m","\033[1;32m"]
-    m = ("welcome to termking_os %s \n" %(dados.name))
+
+def print_slow(print_slow):
+    m = str(print_slow)
     for msg in m:
         sys.stdout.write(msg)
         sys.stdout.flush()
         time.sleep(0.06)
+
+def init():
+    os.system("./shell/hachtag.sh")
+    print(RED)
+    BOLD()
+    print_slow("welcome to termking_os "+dados.name)
+    print("")
     print("")
     os.system("./shell/hachtag.sh")
 
@@ -146,7 +160,7 @@ def PROMPT():
             PROMPT_command_d=PROMPT_command.split()
         if ( PROMPT_command== " " ):
             PROMPT_command="not"
-        PROMPT_command_ponto=PROMPT_command.replace(" ","(),")
+        PROMPT_command_ponto=PROMPT_command.replace("..","(),")
         if ( PROMPT_command == "exit" ):
             init_PROMPT=False
         PROMPT_command_ponto=PROMPT_command_ponto.strip()
