@@ -46,7 +46,7 @@ while(init_w == True ):
 
     #comman
     if ( co_cut[0] == "comman" ):
-        prin("enter | down | apps | change | VAL")
+        prin("enter | down | apps | change | VAL | PROMPT | upd | clear | shutdown ")
     #comman
 
     #enter
