@@ -53,19 +53,19 @@ fi
 
 figlet load...|lolcat
 git clone https://github.com/edumast/term_py
-if [ -e ~/$directory_download_system/termking ];then
-mv ~/$directory_download_system/termking ~/$directory_download_system/update
+if [ -e ~/$directory_download_system/term_py ];then
+mv ~/$directory_download_system/term_py ~/$directory_download_system/update
 dir_not_nor=true
 fi
-sed -i "s/name=.*#end/name_usr=$name_first #end/g" ~/$directory_download_system/update/termking/databased/database
-sed -i "s/age=.*#end/ager=$age_first #end/g" ~/$directory_download_system/update/termking/databased/database
-   mv ~/$directory_download_system/update/termking/update/* ~/$directory_download_system/update
-   mv ~/$directory_download_system/update/termking/* ~/$directory_download_system
+sed -i "s/name=.*#end/name_usr=$name_first #end/g" ~/$directory_download_system/update/term_py/databased/database
+sed -i "s/age=.*#end/ager=$age_first #end/g" ~/$directory_download_system/update/term_py/databased/database
+   mv ~/$directory_download_system/update/term_py/update/* ~/$directory_download_system/update
+   mv ~/$directory_download_system/update/term_py/* ~/$directory_download_system
 if [ $download_app == "yes" ];then
   git clone https://github.com/edumast/$download_app_name
  if [ $dir_not_nor == true ];then
  mv ~/$directory_download_system/$directory_down ~/$directory_download_system/softwares/software_app
-rm -rf ~/$directory_download_system/update/termking 
+rm -rf ~/$directory_download_system/update/term_py 
 else
   mv ~/$directory_download_system/update/$directory_down ~/$directory_download_system/softwares/software_app
  fi
