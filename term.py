@@ -14,7 +14,7 @@ BOLD()
 if ( dados.in_tela == "UPDATE_DADOS" ):
     ini_tela()
 while(init_w == True ):
-
+    
     #command
     
     command=Read_command()
@@ -46,7 +46,7 @@ while(init_w == True ):
 
     #comman
     if ( co_cut[0] == "comman" ):
-        prin("enter | down | apps | change | VAL | PROMPT | upd | clear | shutdown ")
+        prin("enter | down | apps | change | VAL | PROMPT | upd | clear | shutdown | color")
     #comman
 
     #enter

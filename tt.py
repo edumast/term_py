@@ -1,1 +1,1 @@
-from datetime import datetime(),now = datetime.now()(),BOLD..(),prin(GREEN)..(),rose..(),nome="Eduardo"(),print_slow("HELLO!")..(),print_slow("Eduardo kenji takemoto.")..(),prin(GREEN)..(),print("ano:",end="")..(),rose..(),time.sleep(2)..(),prin("")..(),prin(YELLOW)..(),if ( now.hour >=12 ):(),    tempo="boa tarde!"(),if ( now.hour >= 18 ):(),    tempo="boa noite!"(),if ( now.hour >= 5 ):(),    tempo="bom dia"(),print(tempo+nome)(),
+clear(),prin("t")(),print_slow("olaju")(),

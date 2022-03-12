@@ -180,7 +180,7 @@ def PROMPT():
             PROMPT_command_d=PROMPT_command.split()
         if ( PROMPT_command== " " ):
             PROMPT_command="not"
-        PROMPT_command_ponto=PROMPT_command.replace("..","(),")
+        PROMPT_command_ponto=PROMPT_command.replace("\t","(),")
         if ( PROMPT_command == "exit" ):
             init_PROMPT=False
         PROMPT_command_ponto=PROMPT_command_ponto.strip()
