@@ -3,10 +3,12 @@ init_w=True
 fixsplit="fix fix"
 co_cut=(fixsplit.split)
 from module import *
-
 #os.system("tput setaf 2")
+timeN = datetime.now()
 if ( dados.in_tela == 'True' ):
     init()
+elif ( dados.in_tela == 'tarde' ):
+    time_of_day()
 BOLD()
 #init_style
 if ( dados.in_tela == "UPDATE_DADOS" ):
@@ -14,12 +16,10 @@ if ( dados.in_tela == "UPDATE_DADOS" ):
 while(init_w == True ):
 
     #command
-    rose()
-    print(time.ctime()+" | "+dados.name)
-    command=input(GREEN+"C:")
-    if ( command == "" ):
-        command="fix"
+    
+    command=Read_command()
     co_cut=command.split()
+
     #command
     
     if ( co_cut[0] == "PROMPT"):
@@ -81,4 +81,11 @@ while(init_w == True ):
         apps_list()
         rose()
         BOLD()
-    #apps    
+    #apps 
+
+    #color_text
+    if ( co_cut[0] == "color" ):
+        color=co_cut[1]
+        os.system('sed -i "s/color_text=.*#end/color_text='+co_cut[1]+' #end/g" databased/init_data.py')
+        
+    #color_text

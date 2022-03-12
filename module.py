@@ -3,6 +3,8 @@ import os,sys,time,random
 import time
 from git import Repo
 from databased.database import *
+from datetime import datetime
+from databased.init_data import *
 
 cwd = os.getcwd()
 
@@ -20,6 +22,14 @@ read_file=False
 i="i"
 s="s"
 #type
+
+#time
+
+def up_time():
+    timeN = datetime.now()
+    time_homi=(str(timeN.hour)+":"+str(timeN.minute)+" | "+dados.name)
+    return time_homi
+#time
 
 #RGB#
 OK = ('\033[92m') #GREEN
@@ -91,6 +101,16 @@ def reboot():
 
 def ini_tela():
     os.system('sed -i "s/in_tela=.*#end/in_tela='"'True'"' #end/g" databased/database.py')
+
+def time_of_day():
+    now = datetime.now()
+    if ( now.hour >= 5 ):
+        time_day="bom dia"
+    if ( now.hour >=12 ):
+        time_day="boa tarde"
+    if ( now.hour >= 18 ):
+        time_day="boa noite"
+    return time_day
 
 def VAL(change_var,valor_new):
     os.system('sed -i "s/'+change_var+'=.*#end/'+change_var+'='+"'"+str(valor_new)+"'"+' #end/g" databased/database.py')
@@ -175,7 +195,18 @@ def PROMPT():
         if ( escudo == False ):
             c=(c+"()")
             print(c)
-        
+        #if (PROMPT_command in globals()):
         eval (c)
         if ( read_file == True ):
             p=input("")
+def Read_command():
+    #command
+    rose()
+    #time.ctime
+    time_homi=up_time()
+    print("termking | "+str(time_homi))
+    command=input(color_text+"C:")
+    if ( command == "" ):
+        command="fix"
+    return command
+    #command
