@@ -6,6 +6,8 @@ from databased.database import *
 from datetime import datetime
 from databased.init_data import *
 
+#print(RESET,end="")
+
 cwd = os.getcwd()
 
 fixsplit="fix fix"

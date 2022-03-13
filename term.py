@@ -1,22 +1,37 @@
-#!/usr/bin/python
+#!/usr/bin/python3
+
+#init
 init_w=True
+#init
+
+#fix
 fixsplit="fix fix"
 co_cut=(fixsplit.split)
+#fix
+
+#module_base
 from module import *
-#os.system("tput setaf 2")
+#module_base
+
+#time
 timeN = datetime.now()
+#time
+
+#init_tela
 if ( dados.in_tela == 'True' ):
     init()
 elif ( dados.in_tela == 'tarde' ):
     time_of_day()
+#init_tela
+
 BOLD()
+
 #init_style
 if ( dados.in_tela == "UPDATE_DADOS" ):
     ini_tela()
 while(init_w == True ):
     
     #command
-    
     command=Read_command()
     co_cut=command.split()
 
