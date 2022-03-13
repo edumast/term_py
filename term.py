@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 
 #init
 init_w=True
@@ -36,7 +36,8 @@ while(init_w == True ):
     co_cut=command.split()
 
     #command
-    
+    if ( co_cut[0] == "update" ):
+        os.system("./update/update_software")
     if ( co_cut[0] == "PROMPT"):
         PROMPT()
         color(GREEN)
