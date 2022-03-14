@@ -7,6 +7,6 @@ if [ $esc == 2 ];then
    ./bios_init.sh
     fi
     if [ $esc == 3 ];then
-./term.sh
+./term.py
   fi
 

@@ -1,4 +1,4 @@
 clear
 prin("t")
-print_slow("olaju")
+print_slow("teste")
 

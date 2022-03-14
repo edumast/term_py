@@ -65,7 +65,7 @@ def ts2():
 #WINDOW#
 
 def dados_up():
-    os.system('sed -i "s/in_tela=.*#end/in_tela='"'UPDATE_DADOS'"' #end/g" databased/database.py')
+    os.system('sed -i "s/init_window=.*#end/init_window=False #end/g" databased/database.py')
     os.system("./term.py")
     brek=True
 
@@ -102,16 +102,16 @@ def reboot():
     os.system("./term.py")
 
 def ini_tela():
-    os.system('sed -i "s/in_tela=.*#end/in_tela='"'True'"' #end/g" databased/database.py')
+    os.system('sed -i "s/init_window=.*#end/init_window=True #end/g" databased/database.py')
 
 def time_of_day():
     now = datetime.now()
     if ( now.hour >= 5 ):
-        time_day="bom dia"
+        time_day="dia"
     if ( now.hour >=12 ):
-        time_day="boa tarde"
+        time_day="tarde"
     if ( now.hour >= 18 ):
-        time_day="boa noite"
+        time_day="noite"
     return time_day
 
 def VAL(change_var,valor_new):
