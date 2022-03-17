@@ -6,9 +6,14 @@ from databased.database import *
 from datetime import datetime
 from databased.init_data import *
 
-#print(RESET,end="")
+#################
+#Edumast,inc
+#################
 
 cwd = os.getcwd()
+
+os.system("tput setaf 2")
+
 
 fixsplit="fix fix"
 command_d=(fixsplit.split())
@@ -64,36 +69,51 @@ def ts2():
     os.system("tput setaf 2")
 #WINDOW#
 
+#update_dados
 def dados_up():
     os.system('sed -i "s/init_window=.*#end/init_window=False #end/g" databased/database.py')
     os.system("./term.py")
     brek=True
+#update_dados
 
+#shell command
 def clin (clin_command):
     os.system(clin_command)
+#shell command
 
+#shutdown
 def shutdown():
     print("shutdown...")
     exit()
+#shutdown 
 
+#exit
 def exitn():
     brek=True
+#exit
 
-
+#input
 def inp(tp,equal,string_inp):
     if ( tp == "i" ):
         globals()[equal]=int(input(string_inp))
     elif ( tp == "s" ):
         globals()[equal]=str(input(string_inp))
+#input
 
+#create var
 def create(var,val):
     globals()[var]=val
+#create var
 
+#app_list
 def apps_list():
     os.system("ls softwares/software_app")
+#app_list
 
+#load_file_with_shell
 def load_file(file_load):
     os.system("."+folder_bar+file_load+"/init.sh")
+#load_file_with_shell
 
 def load_img(img_link):
     os.system("jp2a --color --chars=clodxkO0KXNWM img/"+img_link)

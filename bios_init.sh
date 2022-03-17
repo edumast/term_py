@@ -1,6 +1,8 @@
 #bin/bash
 data_file=`echo $PWD | rev | cut -d'/' -f 1 | rev`
 source databased/database.py
+tput bold
+tput setaf 2
 echo edumast,inc 2022
 echo project termking_os
 echo created by eduardo kenji
@@ -35,12 +37,17 @@ fi
 
 err2=false
 sleep 1
-echo "system files:ok"
-      err2=true
+
+if [ -e term.py ];then
+  if [ -e softwares ];then
+  echo "system files:ok"
+  err2=true
+  fi 
+fi 
+
 if [ $err2 == false ];then
 echo "system files:off"
 echo "system error!!!"
-echo "correcting error"
 ./update/update_software
 fi
 sleep 0.5

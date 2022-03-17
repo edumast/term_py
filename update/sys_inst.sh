@@ -1,6 +1,12 @@
 #!/bin/bash
 local=`echo $PWD | rev | cut -d'/' -f 2 | rev`
-echo "hello welcome to kingterm system installer" |lolcat
+tput bold
+figlet termking|lolcat
+tput bold
+python3 wlc.py
+tput setaf 2
+echo press space!
+read stop_inp
 while :; do dir=$( dialog --stdout --title "config_install" --menu "want to download the system in which directory?" 0 0 0 "1. $local" "diretorio principal" "2. diretorio alternativo" "escolher diretorio" )
 if [ "$dir" == "2. diretorio alternativo" ]; then 
   alt=true
@@ -57,8 +63,8 @@ if [ -e ~/$directory_download_system/term_py ];then
 mv ~/$directory_download_system/term_py ~/$directory_download_system/update
 dir_not_nor=true
 fi
-sed -i "s/name=.*#end/name_usr=$name_first #end/g" ~/$directory_download_system/update/term_py/databased/database
-sed -i "s/age=.*#end/ager=$age_first #end/g" ~/$directory_download_system/update/term_py/databased/database
+sed -i "s/name=.*#end/name_usr=$name_first #end/g" ~/$directory_download_system/update/term_py/databased/database.py
+sed -i "s/age=.*#end/ager=$age_first #end/g" ~/$directory_download_system/update/term_py/databased/database.py
    mv ~/$directory_download_system/update/term_py/update/* ~/$directory_download_system/update
    mv ~/$directory_download_system/update/term_py/* ~/$directory_download_system
 if [ $download_app == "yes" ];then
