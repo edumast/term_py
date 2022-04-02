@@ -7,7 +7,7 @@ from datetime import datetime
 from databased.init_data import *
 
 #################
-#Edumast,inc
+#Edumast,inc.
 #################
 
 cwd = os.getcwd()
@@ -34,7 +34,7 @@ s="s"
 
 def up_time():
     timeN = datetime.now()
-    time_homi=(str(timeN.hour)+":"+str(timeN.minute)+" | "+dados.name)
+    time_homi=(str(timeN.hour)+":"+str(timeN.minute)+" | "+name)
     return time_homi
 #time
 
@@ -70,7 +70,7 @@ def ts2():
 #WINDOW#
 
 #update_dados
-def dados_up():
+def up():
     os.system('sed -i "s/init_window=.*#end/init_window=False #end/g" databased/database.py')
     os.system("./term.py")
     brek=True
@@ -112,18 +112,42 @@ def apps_list():
 
 #load_file_with_shell
 def load_file(file_load):
+    if ( file_load == "//" ):
+        file_load=number_list_app(file_load)
+        file_load=str(file_load)
     os.system("."+folder_bar+file_load+"/init.sh")
 #load_file_with_shell
 
+#load_img
 def load_img(img_link):
     os.system("jp2a --color --chars=clodxkO0KXNWM img/"+img_link)
+#load_img
 
+#reboot_system
 def reboot():
     os.system("./term.py")
+#reboot_system
 
+def number_list_app(number_receive): 
+    min_app=0
+    max_app=5
+    print("OK")
+    number_receive=int(number_receive)
+    if ( number_receive > min_app):
+        if ( number_receive < max_app):
+            app1="editor_py"
+            app2="go"
+            app3="mine"
+            app4="cal"
+            result=eval("app"+str(number_receive))
+            print(result)
+
+#init_window_True_upd
 def ini_tela():
     os.system('sed -i "s/init_window=.*#end/init_window=True #end/g" databased/database.py')
+#init_window_True_upd
 
+#set_time_day
 def time_of_day():
     now = datetime.now()
     if ( now.hour >= 5 ):
@@ -133,19 +157,25 @@ def time_of_day():
     if ( now.hour >= 18 ):
         time_day="noite"
     return time_day
+#set_time_day
 
+#change_var_sed
 def VAL(change_var,valor_new):
     os.system('sed -i "s/'+change_var+'=.*#end/'+change_var+'='+"'"+str(valor_new)+"'"+' #end/g" databased/database.py')
+#change_var_sed
 
+#down_install_git_clone
 def down_install(folder_apps,app_in):
     os.mkdir(folder_apps+app_in)
     Repo.clone_from("https://github.com/edumast/"+str(app_in),folder_apps+str(app_in))
+#down_install_git_clone
 
+#change_var_python_open
 def change(change_var,valor_new,aspa):
     if ( change_var == "name" ):
         aspa=True
 
-    data_eval=eval("dados."+change_var)
+    data_eval=eval(""+change_var)
     type_change=(data_eval)
     if ( aspa == True ):
         type_change=("'"+type_change+"'")
@@ -162,25 +192,34 @@ def change(change_var,valor_new,aspa):
     with open('databased/database.py', 'w') as fd:
         fd.write(x)
     data_ex=False
+#change_var_python_open
 
-#init_style
-
+#print_slow
 def print_slow(print_slow):
     m = str(print_slow)
     for msg in m:
         sys.stdout.write(msg)
         sys.stdout.flush()
         time.sleep(0.06)
+#print_slow
 
+#init_window
 def init():
     os.system("./shell/hachtag.sh")
     print(RED)
     BOLD()
-    print_slow("welcome to termking_os "+dados.name)
+    print_slow("welcome to termking_os "+name)
     print("")
     print("")
     os.system("./shell/hachtag.sh")
+#init_window
 
+#Not_found
+def Not_found():
+    print("Not_found")
+#Not_found
+
+#PROMPT_function
 def PROMPT():
     init_PROMPT=True
     read_file=False
@@ -203,6 +242,7 @@ def PROMPT():
         if ( PROMPT_command== " " ):
             PROMPT_command="not"
         PROMPT_command_ponto=PROMPT_command.replace("\t","(),")
+        PROMPT_command_ponto=PROMPT_command_ponto.replace("|","(),")
         if ( PROMPT_command == "exit" ):
             init_PROMPT=False
         PROMPT_command_ponto=PROMPT_command_ponto.strip()
@@ -218,9 +258,20 @@ def PROMPT():
             c=(c+"()")
             print(c)
         #if (PROMPT_command in globals()):
+        if ( c == "()" ):
+            c="Not_found()"
         eval (c)
         if ( read_file == True ):
             p=input("")
+#PROMPT_function
+
+def blue_window(tp):
+    if ( tp == "info" ):
+        os.system("wh_tela='true' tp_info='info' ./blue_window.sh")
+    if( tp == "change" ):
+        os.system("wh_tela='true' tp_info='change' ./blue_window.sh")
+
+#command_read
 def Read_command():
     #command
     rose()
@@ -232,3 +283,4 @@ def Read_command():
         command="fix"
     return command
     #command
+#command_read

@@ -22,22 +22,23 @@ timeN = datetime.now()
 #time
 
 #init_tela
-if ( dados.init_window == True ):
-    if ( dados.in_tela == 'True' ):
+if ( init_window == True ):
+    if ( in_tela == 'True' ):
         init()
-    if ( dados.in_tela == 'tarde' ):
+    if ( in_tela == 'tarde' ):
         tarde=time_of_day()
         if ( tarde == 'dia' ):
             adTarde="Bom"
         else:
             adTarde="Boa"
-        print_slow(RED+adTarde+" "+tarde+" "+dados.name+"!")
+        os.system("tput bold")
+        print_slow(RED+adTarde+" "+tarde+" "+name+"!")
         print("")
 BOLD()
 #init_tela
 
 #init_style
-if ( dados.init_window == False ):
+if ( init_window == False ):
     ini_tela()
 while(init_w == True ):
     
@@ -60,7 +61,7 @@ while(init_w == True ):
     
     #upd
     if ( co_cut[0] == "upd"):
-        dados_up()
+        up()
     #upd
 
     #clear
@@ -80,6 +81,14 @@ while(init_w == True ):
         reboot()
         exitn()
     #reboot
+    
+    #Format
+    if ( co_cut[0] == "format" ):
+        os.system("./debug/deb_rm_in")
+    #Format
+
+    if ( co_cut[0] == "corr!" ):
+        os.system("./debug/corron.sh")
 
     #brek
     if ( brek == True ):
@@ -101,10 +110,12 @@ while(init_w == True ):
     if ( co_cut[0] == "down" ):
         if ( co_cut[1] == "install" ):
             down_install(folder_apps,co_cut[2])
+        if ( co_cut[1] == "list" ):
+            os.system("cat list/down_list.txt")
     #down
 
     #change
-    if ( co_cut[0] == "change" ):
+    if ( co_cut[0] == "chang1" ):
         change_var="__err__"
         change_info=co_cut[1]
         valor_new=co_cut[2]
@@ -130,3 +141,8 @@ while(init_w == True ):
         color=co_cut[1]
         os.system('sed -i "s/color_text=.*#end/color_text='+co_cut[1]+' #end/g" databased/init_data.py')
     #color_text
+    
+    if ( co_cut[0] == "change" ):
+        blue_window("change")
+    if ( co_cut[0] == "info" ):
+        blue_window("info")

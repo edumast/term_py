@@ -57,10 +57,10 @@ echo press space to start system
 read press_space_continue_sys
 clear
 python3 term.py
-source databased/database
-if [ "$fatal_mensagem" == false ];then
-   sed -i "s/fatal_mensagem=.*#end/fatal_mensagem=true #end/g" ~/$data_file/databased/database
-elif [ "$fatal_mensagem" == true ];then
+source databased/database.py
+if [ "$fatal_mensagem" == False ];then
+   sed -i "s/fatal_mensagem=.*#end/fatal_mensagem=True #end/g" ~/$data_file/databased/database.py
+elif [ "$fatal_mensagem" == True ];then
 while :; do fatal_ny=$( dialog --stdout --title "fatal!!!" --menu " fatal error!
   your system is broken!!!
   format your system!!!

@@ -1,5 +1,5 @@
 clear
-jp2a --color img/edukn.jpg
+jp2a --color --chars=clodxkO0KXNWM img/coroa.jpeg
 tput setaf 2
 tput bold
 sleep 0.5
