@@ -1,7 +1,8 @@
 source databased/database.py
+source databased/init_data.py
 data_file="databased"
 while [ "$wh_tela" == true ];do
-  info_blue_window=$( dialog --stdout --title "info_window" --menu "qual a informaçao" 0 0 0 "age" "$age" "name" "$name" "fatal_mensagem" "fatal_mensagem")
+  info_blue_window=$( dialog --stdout --title "info_window" --menu "qual a informaçao" 0 0 0 "age" "$age" "name" "$name" "color_text" "$color_text")
    if [ "$info_blue_window" != " " ];then
    clear
   if [ "$tp_info" == "info" ];then

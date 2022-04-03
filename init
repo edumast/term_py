@@ -6,6 +6,7 @@ sleep 0.5
 echo ""
 figlet Created by Eduardo kenji takemoto
 sleep 0.5
+sleep=0
 while [ $sleep -lt 1 ];do
 echo " "
 sleep 0.5
