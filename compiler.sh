@@ -1,8 +1,11 @@
-sed ':a;N;s/\n/(),/g;ta' t.py > tt.py
+arq1="t.py"
+arq2="tt.py"
+sed ':a;N;s/\n/(),/g;ta' $arq1 > $arq2
+sed -i 's/)()/)/g' $arq2
+sed -i 's/,;(),/\n/g' $arq2
+sed -i 's/;(),/\n/g' $arq2
+sed -i 's/;()/\n/g' $arq2
+sed -i 's/;/\n/g' $arq2
+sed -i '1s/^/from module import *\n/g' $arq2
+sed -i '1s/^/#!\/usr\/bin\/env python3\n/g' $arq2
 cat tt.py
-sed -i 's/)()/)/g' tt.py
-cat tt.py
-sed -i 's/,;(),/\n/g' tt.py
-sed -i 's/;(),/\n/g' tt.py
-sed -i 's/;()/\n/g' tt.py
-sed -i '1s/^/from module import *\n/g' tt.py

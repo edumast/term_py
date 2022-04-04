@@ -31,7 +31,6 @@ s="s"
 #type
 
 #time
-
 def up_time():
     timeN = datetime.now()
     time_homi=(str(timeN.hour)+":"+str(timeN.minute)+" | "+name)
@@ -69,8 +68,10 @@ def ts2():
     os.system("tput setaf 2")
 #WINDOW#
 
+#space_input
 def space():
     space=input("")
+#space_input
 
 #update_dados
 def up():
@@ -235,16 +236,21 @@ def PROMPT():
         if ( read_file == False ):
             PROMPT_command=input("C:")
         if ( PROMPT_command == "file" ):
+            os.system("./compiler.sh")
+            os.system("./tt.py")
+        if ( PROMPT_command == "file1" ):
             read_file=True
             PROMPT_command="ch"
 
+        #old_compiler
         if ( read_file == True ):
             os.system("./compiler.sh")
             meuArquivo = open('tt.py')
             nomes = meuArquivo.read()
             PROMPT_command=str(nomes)
-
             PROMPT_command_d=PROMPT_command.split()
+        #old_compiler
+
         if ( PROMPT_command== " " ):
             PROMPT_command="not"
         PROMPT_command_ponto=PROMPT_command.replace("\t","(),")

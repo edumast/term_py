@@ -1,4 +1,4 @@
-name="edu" #end
+name="Edu" #end
 age=15 #end
 __err__='err' #end
 in_tela='tarde' #end
