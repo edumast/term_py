@@ -3,5 +3,11 @@ local=`echo $PWD | rev | cut -d'/' -f 2 | rev`
 echo "Continue?"
 read what
 if [ $what == "y" ];then
+pkg install wget
+apt install ruby
 apt install python python2 python3
+wget https://github.com/busyloop/lolcat/archive/master.zip
+unzip master.zip
+cd lolcat-master/bin
+gem install lolcat
 fi
