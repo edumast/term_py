@@ -146,3 +146,5 @@ while(init_w == True ):
         blue_window("change")
     if ( co_cut[0] == "info" ):
         blue_window("info")
+    if ( co_cut[0] == "break" ):
+        init_w=False

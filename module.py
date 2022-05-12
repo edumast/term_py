@@ -156,15 +156,22 @@ def ini_tela():
 
 #set_time_day
 def time_of_day():
-    now = datetime.now()
-    if ( now.hour >= 5 ):
+    time=definy_time()
+    if ( time.hour >= 5 ):
         time_day="dia"
-    if ( now.hour >=12 ):
+    if ( time.hour >=12 ):
         time_day="tarde"
-    if ( now.hour >= 18 ):
+    if ( time.hour >= 18 ):
         time_day="noite"
     return time_day
 #set_time_day
+
+def definy_time():
+    time = datetime.now()
+    return time
+
+def print_time():
+    print(definy_time())
 
 #change_var_sed
 def VAL(change_var,valor_new):
@@ -209,6 +216,15 @@ def print_slow(print_slow):
         sys.stdout.flush()
         time.sleep(0.06)
 #print_slow
+
+#print_slow_time
+def print_slow_time(print_slow,time_slow_print):
+    m = str(print_slow)
+    for msg in m:
+        sys.stdout.write(msg)
+        sys.stdout.flush()
+        time.sleep(time_slow_print)
+#print_slow_time
 
 #init_window
 def init():
