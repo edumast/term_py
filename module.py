@@ -1,5 +1,5 @@
 #!/usr/bin/python
-import os,sys,time,random
+import os,sys,random
 import time
 from git import Repo
 from databased.database import *
@@ -311,5 +311,10 @@ def Read_command():
     if ( command == "" ):
         command="fix"
     return command
+    
+
     #command
 #command_read
+def colort(color):
+    color=color.replace("'","")
+    os.system('sed -i "s/color_text=.*#end/color_text='+color+' #end/g" databased/init_data.py')
