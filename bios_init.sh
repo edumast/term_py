@@ -1,11 +1,13 @@
 #bin/bash
 data_file=`echo $PWD | rev | cut -d'/' -f 1 | rev`
 source databased/database.py
+tput setaf 1
 tput bold
+echo Edumast,inc 2022
+echo Project Termking_OS
+echo Created by Eduardo Kenji
 tput setaf 2
-echo edumast,inc 2022
-echo project termking_os
-echo created by eduardo kenji
+tput bold
 sleep 0.5
 echo checking system status!
 sleep 0.5
@@ -56,7 +58,7 @@ sleep 0.5
 echo press space to start system
 read press_space_continue_sys
 clear
-python3 term.py
+python3 ter.py
 source databased/database.py
 if [ "$fatal_mensagem" == False ];then
    sed -i "s/fatal_mensagem=.*#end/fatal_mensagem=True #end/g" ~/$data_file/databased/database.py

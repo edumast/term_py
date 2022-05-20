@@ -17,4 +17,7 @@ if [ "$space" == "+" ];then
   tput setaf 2
   cat t.py
   read space
-fi 
+  clear
+else
+  clear
+fi

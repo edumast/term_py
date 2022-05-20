@@ -242,6 +242,12 @@ def Not_found():
     print("Not_found")
 #Not_found
 
+#compiler_file
+def compi():
+    os.system("./compiler.sh")
+    os.system("./tt.py")
+#compiler_file
+
 #PROMPT_function
 def PROMPT():
     init_PROMPT=True
@@ -252,8 +258,7 @@ def PROMPT():
         if ( read_file == False ):
             PROMPT_command=input("C:")
         if ( PROMPT_command == "file" ):
-            os.system("./compiler.sh")
-            os.system("./tt.py")
+            compi()
         if ( PROMPT_command == "file1" ):
             read_file=True
             PROMPT_command="ch"
@@ -318,3 +323,8 @@ def Read_command():
 def colort(color):
     color=color.replace("'","")
     os.system('sed -i "s/color_text=.*#end/color_text='+color+' #end/g" databased/init_data.py')
+
+#update_software
+def update():
+    os.system("./update/update_software")
+#update_software
